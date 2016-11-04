@@ -52,8 +52,18 @@ def add_an_item_shopping_list(key, item):
         return " List can not be found"    
  
 
-def remove_item_shopping_list():
-    pass 
+def remove_item_shopping_list(key, item):
+    if key in main_shopping_list:
+        if item in main_shopping_list[key]:
+            shopping_list=main_shopping_list[key]
+            shopping_list.remove(item)
+            return shopping_list
+        else: 
+            return "Item can not be removed because not found"
+    else:
+        return "List can not be found"        
+
+
 
 
 def remove_list():
@@ -67,10 +77,11 @@ def remove_list():
 def main():
 
     # main_menu()
-    # show_all_list()
+    # show_all_list()    # print add_an_item_shopping_list("Safeway", "lemons")
     # print show_a_specific_list("Target")
     # print add_a_new_shopping_list("Safeway")
-    print add_an_item_shopping_list("Safeway", "pasta")
+    # print add_an_item_shopping_list("Safeway", "lemons")
+    print remove_item_shopping_list("Sephora","lemons")
 
     # while True:
 
